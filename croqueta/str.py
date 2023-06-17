@@ -8,7 +8,7 @@ def hash_string_to_n_digits(s, n = 10):
     assert n > 0, "Number of digits must be a positive integer"
 
     # Create a SHA256 hash object
-    hasher = hashlib.sha256(usedforsecurity = False)
+    hasher = hashlib.sha256()
 
     # Encode the input string and hash it
     hasher.update(s.encode('utf-8'))
