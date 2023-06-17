@@ -10,6 +10,22 @@ import numpy as np
 def filter_df(df, filter_dict, filter_type='and', filter_iterable_values = True):
     """
     Filter a dataframe with a dictionary of filters.
+
+    Args:
+        df (pandas.DataFrame): The dataframe to be filtered.
+        filter_dict (dict): A dictionary of filters, where the keys represent the column names
+            and the values represent the filter values.
+        filter_type (str, optional): The type of filter to apply. Valid values are 'and' (default) and 'or'.
+        filter_iterable_values (bool, optional): Determines whether iterable values should be treated as
+            multiple filter values. Defaults to True.
+
+    Returns:
+        pandas.DataFrame: The filtered dataframe.
+
+    Example:
+        df = pd.DataFrame({'A': [1, 2, 3, 4], 'B': ['x', 'y', 'z', 'w']})
+        filters = {'A': [2, 3], 'B': 'x'}
+        filtered_df = filter_df(df, filters, filter_type = "or")
     """
     views = []
     for key, value in filter_dict.items():

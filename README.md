@@ -1,10 +1,12 @@
-# Croqueta
+# Croqueta <img src="img/croqueta.png" alt="Croqueta Logo" width="60" height="60" style="vertical-align: middle;">
 
-Deploying to PyPI
------------------
 
-```
-python setup.py sdist bdist_wheel
-twine upload dist/*
-python setup.py clean --all
-```
+
+A library with all sorts of utils and handy functions for non-production code.
+
+
+
+Installation
+------------
+```pip install croqueta```
+
