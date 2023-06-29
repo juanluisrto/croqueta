@@ -16,8 +16,8 @@ def filter_df(df, filter_dict, filter_type='and', filter_iterable_values = True)
         filter_dict (dict): A dictionary of filters, where the keys represent the column names
             and the values represent the filter values.
         filter_type (str, optional): The type of filter to apply. Valid values are 'and' (default) and 'or'.
-        filter_iterable_values (bool, optional): Determines whether iterable values should be treated as
-            multiple filter values. Defaults to True.
+        filter_iterable_values (bool, optional): If a filter value is an iterable, create one filter for each
+        element in the iterable. Defaults to True.
 
     Returns:
         pandas.DataFrame: The filtered dataframe.
@@ -30,15 +30,15 @@ def filter_df(df, filter_dict, filter_type='and', filter_iterable_values = True)
     views = []
     for key, value in filter_dict.items():
         if filter_iterable_values and not isinstance(value, str) and isinstance(value, Iterable):
-            views.append(df[df[key].isin(value)])
+            views.append(df[key].isin(value))
         else:
-            views.append(df[df[key] == value])
+            views.append(df[key] == value)
     
     if filter_type == "and":
         index = reduce(lambda x, y : x.index.intersection(y.index), views)   
     elif filter_type == "or":
         index = reduce(lambda x, y : x.index.union(y.index), views)
-        
+
     if len(index) > 0:
         return df.loc[index]
 

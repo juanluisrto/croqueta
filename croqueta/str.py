@@ -3,7 +3,7 @@ import string
 import hashlib
 
 def hash_string_to_n_digits(s, n = 10):
-    """Hash a string to a number with n digits."""
+    """Hash a string to a number with n digits.""" 
 
     assert n > 0, "Number of digits must be a positive integer"
 

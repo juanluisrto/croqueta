@@ -2,7 +2,7 @@
 from matplotlib.axes import Axes
 from pathlib import Path
 
-def savefig(fig, filename : str, path = None, size = None, dpi: int =300):
+def savefig(fig, filename : str, path = None, size = None, dpi: int = 300):
     """
     Save a figure to a file.
 
@@ -30,5 +30,4 @@ def savefig(fig, filename : str, path = None, size = None, dpi: int =300):
         filename = filename + '.png'
     if isinstance(size, tuple):
         fig.set_size_inches(size)
-    fig.set_dpi(dpi)
-    fig.savefig(path / filename) 
+    fig.savefig(path / filename, dpi = dpi) 

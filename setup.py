@@ -9,7 +9,7 @@ README = (HERE / "README.md").read_text()
 
 setuptools.setup(
     name="croqueta", # Replace with your own username
-    version="0.2.2",
+    version="0.2.3",
     author="juanluisrto",
     author_email="juanluis.rto@gmail.com",
     description="A bunch of utilities to code even faster.",
